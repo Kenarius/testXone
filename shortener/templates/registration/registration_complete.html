@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %} Регистрация {% endblock %}
+{% block work %}
+    <div class="clean"></div>
+    <div class="rev">
+        Вы были успешно зарегестрированы! <br>
+        <a href="{% url "shortener:login" %}">Войти</a>
+    </div>
+
+{% endblock %}

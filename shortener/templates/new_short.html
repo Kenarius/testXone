@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+    <meta charset="UTF-8">
+    <title>{% block title %} Готово {% endblock %}</title>
+
+    {% block work %} <h2>Сократить ссылку:</h2>
+        <form action="." method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <input type="submit" value="Отправить">
+        </form>
+    {% endblock %}

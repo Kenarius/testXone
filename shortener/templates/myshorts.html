@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+    <meta charset="UTF-8">
+    <title>{% block title %} Мои ссылки {% endblock %}</title>
+
+    {% block work %} <h2>Ваши ссылки:</h2> <div>
+        {% for shorts in request.user.user_data.all %}
+            <div>
+            {{ shorts.fullurl }} <br>
+            Сокращённая: <br>
+            {{ shorts.shorturl }}<br>
+            </div>
+        {% endfor %}
+    </div>
+    {% endblock %}

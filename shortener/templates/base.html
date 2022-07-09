@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        {% block style %}
+        {% endblock %}
+
+        body {
+            background: linear-gradient(to right, black, gray);
+        }
+
+        header {
+            height: 100px;
+            background-color: gray;
+            font-size: 48px;
+            color: white;
+        }
+
+        .greet {
+            position: absolute;
+            margin: 20px;
+        }
+
+        .user {
+            position: absolute;
+            margin-left: 1000px;
+            margin-top: 20px;
+            color: yellow;
+        }
+
+        .user span{
+            margin-left: 10px;
+        }
+
+        .workplace{
+            position: absolute;
+            height: 500px;
+            width: 500px;
+            margin-left: 700px;
+            margin-top: 150px;
+        }
+    </style>
+    <title>{% block title %} DEFAULT TITLE {% endblock %}</title>
+</head>
+<body>
+<header>
+    <p class="greet"><a href="/">Shortener</a> - сократите размер Вашей ссылки!!</p>
+    <p class="user">{% if request.user.is_authenticated %}
+        <span class="login">Здравствуйте {{ request.user.username }} :) </span>
+        <span><a href="{% url "shortener:logout" %}">Выход</a></span>
+        <span><a href="{% url "shortener:myshorts/" %}">Мои ссылки</a></span>
+    {% else %}
+        <span class="login off"><a href="{% url "shortener:login" %}">Авторизация</a></span>
+    {% endif %}
+    </p>
+</header>
+<div class="workplace">{% block work %}{% endblock %}</div>
+</body>
+</html>

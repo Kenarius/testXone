@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+    <meta charset="UTF-8">
+    <title>{% block title %} Shortener {% endblock %}</title>
+
+    {% block work %} <h2>Добро пожаловать! Данный сервис предназначен для сокращения Ваших ссылок. <a href="{% url "shortener:new_short/" %}">Старт</a></h2>
+    {% endblock %}
